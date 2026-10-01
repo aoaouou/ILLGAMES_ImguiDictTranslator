@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<AssemblyName>IL2CPPImguiDictTranslator</AssemblyName>
+		<RootNamespace>IL2CPPImguiDict</RootNamespace>
+		<Nullable>disable</Nullable>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+		<DebugType>none</DebugType>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<!-- 改成你的游戏根目录 / Set to your game root directory -->
+		<GameDir>E:/study/ILLGAMES/HoneyCome/HoneyCome</GameDir>
+		<!-- IL2CPP 互操作程序集目录（个别游戏目录名不同，按需修改） -->
+		<InteropDir>$(GameDir)\BepInEx\interop</InteropDir>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="BepInEx.Core"><HintPath>$(GameDir)\BepInEx\core\BepInEx.Core.dll</HintPath><Private>false</Private></Reference>
+		<Reference Include="BepInEx.Unity.IL2CPP"><HintPath>$(GameDir)\BepInEx\core\BepInEx.Unity.IL2CPP.dll</HintPath><Private>false</Private></Reference>
+		<Reference Include="0Harmony"><HintPath>$(GameDir)\BepInEx\core\0Harmony.dll</HintPath><Private>false</Private></Reference>
+		<Reference Include="Il2CppInterop.Runtime"><HintPath>$(GameDir)\BepInEx\core\Il2CppInterop.Runtime.dll</HintPath><Private>false</Private></Reference>
+		<Reference Include="UnityEngine.CoreModule"><HintPath>$(InteropDir)\UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+		<Reference Include="UnityEngine.IMGUIModule"><HintPath>$(InteropDir)\UnityEngine.IMGUIModule.dll</HintPath><Private>false</Private></Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="..\Shared\ImguiDictPlugin.cs" Link="ImguiDictPlugin.cs" />
+	</ItemGroup>
+
+</Project>
